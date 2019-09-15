@@ -11,6 +11,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<meta name="author" content="ZJ" />
 
 
 <title>Ingesting Data</title>
@@ -301,6 +302,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 
 
 <h1 class="title toc-ignore">Ingesting Data</h1>
+<h4 class="author">ZJ</h4>
 
 
 
@@ -342,11 +344,12 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <a class="sourceLine" id="cb6-3" title="3"><span class="co"># or</span></a>
 <a class="sourceLine" id="cb6-4" title="4">some.df =<span class="st"> </span><span class="kw">csv_to_disk.frame</span>(<span class="kw">list.files</span>(<span class="st">&quot;some/path&quot;</span>))</a></code></pre></div>
 </div>
-<div id="inputing-csv-files-chunk-wise" class="section level2">
-<h2>Inputing CSV files chunk-wise</h2>
+<div id="ingesting-csv-files-chunk-wise" class="section level2">
+<h2>Ingesting CSV files chunk-wise</h2>
 <p>The <code>csv_to_disk.frame(path, ...)</code> function reads the file located at <code>path</code> in full into RAM but sometimes the CSV file may be too large to read in one go, as that would require loading the whole file into RAM. In that case, you can read the files chunk-by-chunk by using the <code>in_chunk_size</code> argument which controls how many rows you read in per chunk</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="co"># to read in 1 million (=1e6) rows per chunk</span></a>
 <a class="sourceLine" id="cb7-2" title="2"><span class="kw">csv_to_disk.frame</span>(path, <span class="dt">in_chunk_size =</span> <span class="fl">1e6</span>)</a></code></pre></div>
+<p>When <code>in_chunk_size</code> is specified, the input file is split into many smaller files using <code>bigreadr</code>’s split file functions. This is generally the fastest way to ingest large CSVs, as the split files can be processed in parallel using all CPU cores. But the disk space requirement is doubled because the split files are as large as the original file. If you run out of disk space, then you must clean R’s temporary folder at <code>tempdir()</code> and choose another <code>chunk_reader</code> e.g. <code>csv_to_disk.frame(..., chunk_reader = &quot;LaF&quot;)</code>.</p>
 </div>
 <div id="sharding" class="section level2">
 <h2>Sharding</h2>

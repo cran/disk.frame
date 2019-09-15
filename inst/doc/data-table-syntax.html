@@ -11,6 +11,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<meta name="author" content="ZJ" />
 
 
 <title>Using data.table syntax with disk.frame</title>
@@ -301,6 +302,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 
 
 <h1 class="title toc-ignore">Using data.table syntax with disk.frame</h1>
+<h4 class="author">ZJ</h4>
 
 
 
@@ -323,7 +325,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <a class="sourceLine" id="cb1-15" title="15"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb1-16" title="16"><span class="co">#&gt; ## Message from disk.frame:</span></a>
 <a class="sourceLine" id="cb1-17" title="17"><span class="co">#&gt; We have 1 workers to use with disk.frame.</span></a>
-<a class="sourceLine" id="cb1-18" title="18"><span class="co">#&gt; To change that use setup_disk.frame(workers = n) or just setup_disk.frame() to use the defaults.</span></a>
+<a class="sourceLine" id="cb1-18" title="18"><span class="co">#&gt; To change that, use setup_disk.frame(workers = n) or just setup_disk.frame() to use the defaults.</span></a>
 <a class="sourceLine" id="cb1-19" title="19"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb1-20" title="20"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb1-21" title="21"><span class="co">#&gt; It is recommend that you run the following immediately to setup disk.frame with multiple workers in order to parallelize your operations:</span></a>
@@ -405,7 +407,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">srckeep</span>(flights.df, <span class="kw">c</span>(<span class="st">&quot;year&quot;</span>, <span class="st">&quot;month&quot;</span>))[,.N, .(year, month)]</a></code></pre></div>
 <div id="external-variables-are-captured" class="section level3">
 <h3>External variables are captured</h3>
-<p><code>disk.frame</code> sends the computaion to background workers which are essentially distinct and separate R sessions. Typically, the variables that you have available in your current R session aren’t visible in the other R sessions, but <code>disk.frame</code> uses the <code>future</code> package’s variable detection abilities to figure out which variables are in use and then send them to the background workers so they have access to the variables as well. E.g.</p>
+<p><code>disk.frame</code> sends the computation to background workers which are essentially distinct and separate R sessions. Typically, the variables that you have available in your current R session aren’t visible in the other R sessions, but <code>disk.frame</code> uses the <code>future</code> package’s variable detection abilities to figure out which variables are in use and then send them to the background workers so they have access to the variables as well. E.g.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1">y =<span class="st"> </span><span class="dv">42</span> </a>
 <a class="sourceLine" id="cb4-2" title="2">some_fn &lt;-<span class="st"> </span><span class="cf">function</span>(x) x</a>
 <a class="sourceLine" id="cb4-3" title="3"></a>

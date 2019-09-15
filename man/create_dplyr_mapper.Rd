@@ -2,7 +2,7 @@
 % Please edit documentation in R/dplyr_verbs.r
 \name{create_dplyr_mapper}
 \alias{create_dplyr_mapper}
-\title{A function to make it easier to create dplyr function for disk.frame}
+\title{Create dplyr function for disk.frame}
 \usage{
 create_dplyr_mapper(dplyr_fn, warning_msg = NULL)
 }
@@ -12,5 +12,32 @@ create_dplyr_mapper(dplyr_fn, warning_msg = NULL)
 \item{warning_msg}{The warning message to display when invoking the mapper}
 }
 \description{
-A function to make it easier to create dplyr function for disk.frame
+A function to make it easier to create functions like \code{filter}
+}
+\examples{
+
+filter = create_dplyr_mapper(dplyr::filter)
+
+#' example: creating a function that keeps only the first and last n row
+first_and_last <- function(chunk, n, ...) {
+  nr = nrow(chunk)
+  print(nr-n+1:nr)
+  chunk[c(1:n, (nr-n+1):nr), ]
+}
+
+#' create the function for use with disk.frame
+first_and_last_df = create_dplyr_mapper(first_and_last)
+
+mtcars.df = as.disk.frame(mtcars)
+
+#' the operation is lazy
+lazy_mtcars.df = mtcars.df \%>\%
+  first_and_last_df(2)
+
+#' bring into R
+collect(lazy_mtcars.df)
+
+#' clean up
+delete(mtcars.df)
+
 }

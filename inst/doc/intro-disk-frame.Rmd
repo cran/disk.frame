@@ -1,10 +1,9 @@
 ---
-title: "Quick Start"
+title: "Quick Start: Basic Operations with nycflights13"
 author: "ZJ"
-date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Basic Data Operations - nycflights13}
+  %\VignetteIndexEntry{quick-start}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -66,6 +65,9 @@ devtools::install_github("xiaodaigh/disk.frame")
 
 ```r
 setup_disk.frame()
+
+# this will allow unlimited amount of data to be passed from worker to worker
+options(future.globals.maxSize = Inf)
 ```
 
 The `setup_disk.frame()` sets up background workers equal to the number of CPU cores; please note that, by default, hyper-threaded cores are counted as one not two.

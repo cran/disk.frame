@@ -1,4 +1,7 @@
-#' Bring the disk.frame into R as data.table/data.frame or as a list 
+#' Bring the disk.frame into R
+#'
+#' Bring the disk.frame into RAM by loading the data and running all lazy
+#' operations as data.table/data.frame or as a list
 #' @param x a disk.frame
 #' @param parallel if TRUE the collection is performed in parallel. By default
 #'   if there are delayed/lazy steps then it will be parallel, otherwise it will
@@ -11,25 +14,25 @@
 #' @importFrom furrr future_map_dfr future_options
 #' @importFrom purrr map_dfr
 #' @importFrom dplyr collect select mutate
-#' @return data.frame/data.table
-#' @examples 
+#' @return collect return a data.frame/data.table
+#' @examples
 #' cars.df = as.disk.frame(cars)
 #' # use collect to bring the data into RAM as a data.table/data.frame
 #' collect(cars.df)
-#' 
+#'
 #' # clean up
 #' delete(cars.df)
 #' @export
 #' @rdname collect
 collect.disk.frame <- function(x, ..., parallel = !is.null(attr(x,"lazyfn"))) {
-  #cids = get_chunk_ids(x, full.names = TRUE)
-  cids = as.integer(get_chunk_ids(x))
-  
+  cids = get_chunk_ids(x, full.names = TRUE, strip_extension = FALSE)
+  #cids = as.integer(get_chunk_ids(x))
   if(nchunks(x) > 0) {
     if(parallel) {
       #furrr::future_map_dfr(cids, ~get_chunk(x, .x, full.names = TRUE), .options = furrr::future_options(packages = "disk.frame"))
       #furrr::future_map_dfr(cids, ~disk.frame::get_chunk(x, .x, full.names = TRUE))
-      furrr::future_map_dfr(cids, ~get_chunk(x, .x))
+      furrr::future_map_dfr(cids, ~get_chunk(x, .x, full.names = TRUE))
+      #purrr::map_dfr(cids, ~get_chunk(x, .x, full.names = TRUE))
       #purrr::map_dfr(cids, ~get_chunk(x, .x, full.names = TRUE))
       #future.apply::future_lapply(chunk_ids, function(.x) disk.frame::get_chunk(x, .x))
       #lapply(chunk_ids, function(chunk) get_chunk(x, chunk)) %>% rbindlist
@@ -44,7 +47,7 @@ collect.disk.frame <- function(x, ..., parallel = !is.null(attr(x,"lazyfn"))) {
 #' @param simplify Should the result be simplified to array
 #' @export
 #' @rdname collect
-#' @return list
+#' @return collect_list returns a list
 #' @examples
 #' cars.df = as.disk.frame(cars)
 #' 
@@ -54,15 +57,18 @@ collect.disk.frame <- function(x, ..., parallel = !is.null(attr(x,"lazyfn"))) {
 #' # clean up
 #' delete(cars.df)
 collect_list <- function(x, simplify = FALSE, parallel = !is.null(attr(x,"lazyfn"))) {
+  cids = get_chunk_ids(x, full.names = TRUE, strip_extension = FALSE)
+  
+  
   if(nchunks(x) > 0) {
     res <- NULL
     if (parallel) {
       #res = furrr::future_map(1:nchunks(x), ~get_chunk(x, .x))
-      res = future.apply::future_lapply(1:nchunks(x), function(.x) {
-        get_chunk(x, .x)
+      res = future.apply::future_lapply(cids, function(.x) {
+        get_chunk(x, .x, full.names = TRUE)
       })
     } else {
-      res = purrr::map(1:nchunks(x), ~get_chunk(x, .x))
+      res = purrr::map(cids, ~get_chunk(x, .x, full.names = TRUE))
     }
     if (simplify) {
       return(simplify2array(res))
