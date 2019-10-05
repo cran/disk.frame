@@ -8,17 +8,28 @@
   weight = NULL, .env = NULL, ...)
 }
 \arguments{
-\item{tbl}{a disk.frame}
+\item{tbl}{tbl of data.}
 
-\item{size}{the proportion/fraction of rows to sample}
+\item{size}{For \code{sample_n()}, the number of rows to select.
+For \code{sample_frac()}, the fraction of rows to select.
+If \code{tbl} is grouped, \code{size} applies to each group.}
 
-\item{replace}{TRUE to sample with replacement; FALSE to sample without replacement}
+\item{replace}{Sample with or without replacement?}
 
-\item{weight}{weight of each row. NOT implemented}
+\item{weight}{Sampling weights. This must evaluate to a vector of
+non-negative numbers the same length as the input. Weights are
+automatically standardised to sum to 1.
 
-\item{.env}{for compatibility}
+This argument is automatically \link[rlang:quo]{quoted} and later
+\link[rlang:eval_tidy]{evaluated} in the context of the data
+frame. It supports \link[rlang:quasiquotation]{unquoting}. See
+\code{vignette("programming")} for an introduction to these concepts.}
 
-\item{...}{passed to dplyr}
+\item{.env}{This variable is deprecated and no longer has any
+effect. To evaluate \code{weight} in a particular context, you can
+now unquote a \link[rlang:quosure]{quosure}.}
+
+\item{...}{ignored}
 }
 \description{
 Sample n rows from a disk.frame

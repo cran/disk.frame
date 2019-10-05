@@ -3,9 +3,6 @@
 
 # disk.frame <img src="inst/figures/disk.frame.png" align="right">
 
-[![](https://cranlogs.r-pkg.org/badges/disk.frame)](https://cran.r-project.org/package=disk.frame)
-[![](http://cranlogs.r-pkg.org/badges/grand-total/disk.frame)](https://cran.r-project.org/package=disk.frame)
-
 <details>
 
 <summary>Please take a moment to star the disk.frame Github repo if you
@@ -18,29 +15,42 @@ like disk.frame. It keeps me going.</summary>
 
 <!-- ![disk.frame logo](inst/figures/disk.frame.png?raw=true "disk.frame logo") -->
 
+[![](https://cranlogs.r-pkg.org/badges/disk.frame)](https://cran.r-project.org/package=disk.frame)
+[![](http://cranlogs.r-pkg.org/badges/grand-total/disk.frame)](https://cran.r-project.org/package=disk.frame)
+[![Sponsors on Open
+Collective](https://opencollective.com/diskframe/sponsors/badge.svg)](#sponsors)
+[![Backers on Open
+Collective](https://opencollective.com/diskframe/backers/badge.svg)](#backers)
+[![Travis build
+status](https://travis-ci.org/xiaodaigh/disk.frame.svg?branch=master)](https://travis-ci.org/xiaodaigh/disk.frame)
+[![AppVeyor build
+status](https://ci.appveyor.com/api/projects/status/github/xiaodaigh/disk.frame?branch=master&svg=true)](https://ci.appveyor.com/project/xiaodaigh/disk.frame)
 <!-- badges: end -->
 
 # Introduction
 
-The `disk.frame` package aims to be the answer to the question: how do I
-manipulate structured tabular data that doesn’t fit into Random Access
-Memory (RAM)?
+How can I manipulate structured tabular data that doesn’t fit into
+Random Access Memory (RAM)? Use `{disk.frame}`\!
 
-In a nutshell, `disk.frame` makes use of two simple ideas
+In a nutshell, `{disk.frame}` makes use of two simple ideas
 
 1)  split up a larger-than-RAM dataset into chunks and store each chunk
     in a separate file inside a folder and
 2)  provide a convenient API to manipulate these chunks
 
-`disk.frame` performs a similar role to distributed systems such as
+`{disk.frame}` performs a similar role to distributed systems such as
 Apache Spark, Python’s Dask, and Julia’s JuliaDB.jl for *medium data*
 which are datasets that are too large for RAM but not quite large enough
 to qualify as *big data* that require distributing processing over many
 computers to be effective.
 
+## Sponsors
+
+<a href="https://opencollective.com/diskframe#sponsors" target="_blank"><img src="https://opencollective.com/diskframe/sponsors.svg?width=890"></a>
+
 ## Installation
 
-You can install the released version of disk.frame from
+You can install the released version of `{disk.frame}` from
 [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
@@ -54,33 +64,52 @@ And the development version from [GitHub](https://github.com/) with:
 devtools::install_github("xiaodaigh/disk.frame")
 ```
 
+On some platforms, such as SageMaker, you may need to explicitly specify
+a repo like this
+
+``` r
+install.packages("disk.frame", repo="https://cran.rstudio.com")
+```
+
 ## Vignettes and articles
 
-Please see these vignettes and articles about `disk.frame`
+Please see these vignettes and articles about `{disk.frame}`
 
   - [Quick start:
-    disk.frame](http://daizj.net/disk.frame/articles/intro-disk-frame.html)
+    `{disk.frame}`](http://daizj.net/disk.frame/articles/intro-disk-frame.html)
     which replicates the `sparklyr` vignette for manipulating the
     `nycflights13` flights data.
   - [Ingesting data into
-    disk.frame](http://diskframe.com/articles/ingesting-data.html) which
-    lists some commons way of creating disk.frames
+    `{disk.frame}`](http://diskframe.com/articles/ingesting-data.html)
+    which lists some commons way of creating disk.frames
+  - [`{disk.frame}` can be more
+    epic\!](http://diskframe.com/articles/more-epic.html) shows some
+    ways of loading large CSVs and the importance of `srckeep`
+  - [Fitting GLMs (including logistic
+    regression)](http://diskframe.com/articles/glm.html) introduces the
+    `dfglm` function for fitting generalized linear models
   - [Using data.table syntax with
     disk.frame](http://diskframe.com/articles/data-table-syntax.html)
   - [disk.frame concepts](http://diskframe.com/articles/concepts.html)
   - [Benchmark 1: disk.frame vs Dask vs
     JuliaDB](http://diskframe.com/articles/vs-dask-juliadb.html)
 
+### Interested in learning `{disk.frame}` in a structured course?
+
+Please register your interest at:
+
+<https://leanpub.com/c/taminglarger-than-ramwithdiskframe>
+
 ## Common questions
 
-### a) What is `disk.frame` and why create it?
+### a) What is `{disk.frame}` and why create it?
 
-`disk.frame` is an R package that provides a framework for manipulating
-larger-than-RAM structured tabular data on disk efficiently. The reason
-one would want to manipulate data on disk is that it allows arbitrarily
-large datasets to be processed by R. In other words, we go from “R can
-only deal with data that fits in RAM” to “R can deal with any data that
-fits on disk”. See the next section.
+`{disk.frame}` is an R package that provides a framework for
+manipulating larger-than-RAM structured tabular data on disk
+efficiently. The reason one would want to manipulate data on disk is
+that it allows arbitrarily large datasets to be processed by R. In other
+words, we go from “R can only deal with data that fits in RAM” to “R can
+deal with any data that fits on disk”. See the next section.
 
 ### b) How is it different to `data.frame` and `data.table`?
 
@@ -90,7 +119,7 @@ only data that can fit into RAM can be processed using `data.frame`s.
 This places significant restrictions on what R can process with minimal
 hassle.
 
-In contrast, `disk.frame` provides a framework to store and manipulate
+In contrast, `{disk.frame}` provides a framework to store and manipulate
 data on the hard drive. It does this by loading only a small part of the
 data, called a chunk, into RAM; process the chunk, write out the results
 and repeat with the next chunk. This chunking strategy is widely applied
@@ -101,32 +130,32 @@ example, see [`chunkded`](https://github.com/edwindj/chunked)
 
 Furthermore, there is a row-limit of 2^31 for `data.frame`s in R; hence
 an alternate approach is needed to apply R to these large datasets. The
-chunking mechanism in `disk.frame` provides such an avenue to enable
+chunking mechanism in `{disk.frame}` provides such an avenue to enable
 data manipulation beyond the 2^31 row limit.
 
-### c) How is `disk.frame` different to previous “big” data solutions for R?
+### c) How is `{disk.frame}` different to previous “big” data solutions for R?
 
 R has many packages that can deal with larger-than-RAM datasets,
 including `ff` and `bigmemory`. However, `ff` and `bigmemory` restrict
 the user to primitive data types such as double, which means they do not
-support character (string) and factor types. In contrast, `disk.frame`
+support character (string) and factor types. In contrast, `{disk.frame}`
 makes use of `data.table::data.table` and `data.frame` directly, so all
-data types are supported. Also, `disk.frame` strives to provide an API
-that is as similar to `data.frame`’s where possible. `disk.frame`
+data types are supported. Also, `{disk.frame}` strives to provide an API
+that is as similar to `data.frame`’s where possible. `{disk.frame}`
 supports many `dplyr` verbs for manipulating `disk.frame`s.
 
-Additionally, `disk.frame` supports parallel data operations using
+Additionally, `{disk.frame}` supports parallel data operations using
 infrastructures provided by the excellent [`future`
 package](https://CRAN.R-project.org/package=future) to take advantage of
-multi-core CPUs. Further, `disk.frame` uses state-of-the-art data
+multi-core CPUs. Further, `{disk.frame}` uses state-of-the-art data
 storage techniques such as fast data compression, and random access to
 rows and columns provided by the [`fst`
 package](http://www.fstpackage.org/) to provide superior data
 manipulation speeds.
 
-### d) How does `disk.frame` work?
+### d) How does `{disk.frame}` work?
 
-`disk.frame` works by breaking large datasets into smaller individual
+`{disk.frame}` works by breaking large datasets into smaller individual
 chunks and storing the chunks in `fst` files inside a folder. Each chunk
 is a `fst` file containing a `data.frame/data.table`. One can construct
 the original large dataset by loading all the chunks into RAM and
@@ -134,32 +163,32 @@ row-bind all the chunks into one large `data.frame`. Of course, in
 practice this isn’t always possible; hence why we store them as smaller
 individual chunks.
 
-`disk.frame` makes it easy to manipulate the underlying chunks by
+`{disk.frame}` makes it easy to manipulate the underlying chunks by
 implementing `dplyr` functions/verbs and other convenient functions
 (e.g. the `map.disk.frame(a.disk.frame, fn, lazy = F)` function which
 applies the function `fn` to each chunk of `a.disk.frame` in parallel).
-So that `disk.frame` can be manipulated in a similar fashion to
+So that `{disk.frame}` can be manipulated in a similar fashion to
 in-memory `data.frame`s.
 
-### e) How is `disk.frame` different from Spark, Dask, and JuliaDB.jl?
+### e) How is `{disk.frame}` different from Spark, Dask, and JuliaDB.jl?
 
 Spark is primarily a distributed system that also works on a single
-machine. Dask is a Python package that is most similar to `disk.frame`,
-and JuliaDB.jl is a Julia package. All three can distribute work over a
-cluster of computers. However, `disk.frame` currently cannot distribute
-data processes over many computers, and is, therefore, single machine
-focused.
+machine. Dask is a Python package that is most similar to
+`{disk.frame}`, and JuliaDB.jl is a Julia package. All three can
+distribute work over a cluster of computers. However, `{disk.frame}`
+currently cannot distribute data processes over many computers, and is,
+therefore, single machine focused.
 
 In R, one can access Spark via `sparklyr`, but that requires a Spark
-cluster to be set up. On the other hand `disk.frame` requires zero-setup
-apart from running `install.packages("disk.frame")` or
+cluster to be set up. On the other hand `{disk.frame}` requires
+zero-setup apart from running `install.packages("disk.frame")` or
 `devtools::install_github("xiaodaigh/disk.frame")`.
 
 Finally, Spark can only apply functions that are implemented for Spark,
-whereas `disk.frame` can use any function in R including user-defined
+whereas `{disk.frame}` can use any function in R including user-defined
 functions.
 
-### f) How is `disk.frame` different from multidplyr, partools and distributedR?
+### f) How is `{disk.frame}` different from multidplyr, partools and distributedR?
 
 The packages [multidplyr](https://github.com/tidyverse/multidplyr)
 doesn’t seem to be disk-focused and hence does not allow arbitrarily
@@ -172,11 +201,19 @@ on existing verbs provided by data.table and dplyr. The package
 updated for a few years and also seems to require its own functions and
 verbs.
 
-## Set-up `disk.frame`
+## Backers
 
-`disk.frame` works best if it can process multiple data chunks in
-parallel. The best way to set-up `disk.frame` so that each CPU core runs
-a background worker is by using
+I would like to thank our backer:
+
+<a href="https://opencollective.com/diskframe#backers" target="_blank"><img src="https://opencollective.com/diskframe/backers.svg?width=890"></a>
+
+# Example usage
+
+## Set-up `{disk.frame}`
+
+`{disk.frame}` works best if it can process multiple data chunks in
+parallel. The best way to set-up `{disk.frame}` so that each CPU core
+runs a background worker is by using
 
 ``` r
 setup_disk.frame()
@@ -192,46 +229,10 @@ counted as one not two.
 Alternatively, one may specify the number of workers using
 `setup_disk.frame(workers = n)`.
 
-# Example usage
+## Quick-start
 
-```` r
-library(disk.frame)
-#> Loading required package: dplyr
-#> 
-#> Attaching package: 'dplyr'
-#> The following objects are masked from 'package:stats':
-#> 
-#>     filter, lag
-#> The following objects are masked from 'package:base':
-#> 
-#>     intersect, setdiff, setequal, union
-#> Loading required package: purrr
-#> Registered S3 method overwritten by 'pryr':
-#>   method      from
-#>   print.bytes Rcpp
-#> 
-#> ## Message from disk.frame:
-#> We have 1 workers to use with disk.frame.
-#> To change that, use setup_disk.frame(workers = n) or just setup_disk.frame() to use the defaults.
-#> 
-#> 
-#> It is recommend that you run the following immediately to setup disk.frame with multiple workers in order to parallelize your operations:
-#> 
-#> 
-#> ```r
-#> # this willl set disk.frame with multiple workers
-#> setup_disk.frame()
-#> # this will allow unlimited amount of data to be passed from worker to worker
-#> options(future.globals.maxSize = Inf)
-#> ```
-#> 
-#> Attaching package: 'disk.frame'
-#> The following objects are masked from 'package:purrr':
-#> 
-#>     imap, imap_dfr, map, map_dfr, map2
-#> The following objects are masked from 'package:base':
-#> 
-#>     colnames, ncol, nrow
+``` r
+suppressPackageStartupMessages(library(disk.frame))
 library(nycflights13)
 
 # this will setup disk.frame's parallel backend with number of workers equal to the number of CPU cores (hyper-threaded cores are counted as one not two)
@@ -243,14 +244,14 @@ options(future.globals.maxSize = Inf)
 # convert the flights data.frame to a disk.frame
 # optionally, you may specify an outdir, otherwise, the 
 flights.df <- as.disk.frame(nycflights13::flights)
-````
+```
 
 To find out where the disk.frame is stored on disk:
 
 ``` r
 # where is the disk.frame stored
 attr(flights.df, "path")
-#> [1] "C:\\Users\\RTX2080\\AppData\\Local\\Temp\\Rtmp8wzlwB\\file349c2f8f65d9.df"
+#> [1] "C:\\Users\\RTX2080\\AppData\\Local\\Temp\\RtmpstAhab\\file2ffc6304721e.df"
 ```
 
 A number of data.frame functions are implemented for disk.frame
@@ -328,17 +329,17 @@ two-stage group by is required to obtain the correct group by results.
 The two-stage approach is preferred for performance reasons too.
 
 To perform group-by one needs to do it in two-stage approach as the
-group-bys are performed within each chunk. This will be addressed in a
+group-by’s are performed within each chunk. This will be addressed in a
 future package called `disk.frame.db`, but for now two-stage aggregation
-is the best to do group-bys in `disk.frame`.
+is the best to do group-bys in `{disk.frame}`.
 
 ``` r
 flights.df = as.disk.frame(nycflights13::flights)
 
 flights.df %>%
   srckeep(c("year","distance")) %>%  # keep only carrier and distance columns
-  group_by(year) %>% 
-  summarise(sum_dist = sum(distance)) %>% # this does a count per chunk
+  chunk_group_by(year) %>% 
+  chunk_summarise(sum_dist = sum(distance)) %>% # this does a count per chunk
   collect
 #> # A tibble: 6 x 2
 #>    year sum_dist
@@ -357,8 +358,8 @@ This is two-stage group-by in action
 # need a 2nd stage to finalise summing
 flights.df %>%
   srckeep(c("year","distance")) %>%  # keep only carrier and distance columns
-  group_by(year) %>% 
-  summarise(sum_dist = sum(distance)) %>% # this does a count per chunk
+  chunk_group_by(year) %>% 
+  chunk_summarise(sum_dist = sum(distance)) %>% # this does a count per chunk
   collect %>% 
   group_by(year) %>% 
   summarise(sum_dist = sum(sum_dist))
@@ -377,7 +378,7 @@ df_filtered <-
   flights.df %>% 
   filter(month == 1)
 cat("filtering a < 0.1 took: ", data.table::timetaken(pt), "\n")
-#> filtering a < 0.1 took:  0.010s elapsed (0.010s cpu)
+#> filtering a < 0.1 took:  0.000s elapsed (0.000s cpu)
 nrow(df_filtered)
 #> [1] 336776
 ```
@@ -390,14 +391,14 @@ res1 <- flights.df %>%
   srckeep(c("month", "dep_delay")) %>% 
   filter(month <= 6) %>% 
   mutate(qtr = ifelse(month <= 3, "Q1", "Q2")) %>% 
-  group_by(qtr) %>% 
-  summarise(sum_delay = sum(dep_delay, na.rm = TRUE), n = n()) %>% 
+  chunk_group_by(qtr) %>% 
+  chunk_summarise(sum_delay = sum(dep_delay, na.rm = TRUE), n = n()) %>% 
   collect %>%
   group_by(qtr) %>% 
   summarise(sum_delay = sum(sum_delay), n = sum(n)) %>% 
   mutate(avg_delay = sum_delay/n)
 cat("group by took: ", data.table::timetaken(pt), "\n")
-#> group by took:  0.580s elapsed (0.170s cpu)
+#> group by took:  0.940s elapsed (0.180s cpu)
 
 collect(res1)
 #> # A tibble: 2 x 4
@@ -418,11 +419,11 @@ res1 <- flights.df %>%
   filter(month <= 6) %>% 
   mutate(qtr = ifelse(month <= 3, "Q1", "Q2")) %>% 
   hard_group_by(qtr) %>% # hard group_by is MUCH SLOWER but avoid a 2nd stage aggregation
-  summarise(avg_delay = mean(dep_delay, na.rm = TRUE)) %>% 
+  chunk_summarise(avg_delay = mean(dep_delay, na.rm = TRUE)) %>% 
   collect
 #> Appending disk.frames:
 cat("group by took: ", data.table::timetaken(pt), "\n")
-#> group by took:  1.160s elapsed (0.280s cpu)
+#> group by took:  1.480s elapsed (0.280s cpu)
 
 collect(res1)
 #> # A tibble: 2 x 2
@@ -484,37 +485,52 @@ grp_by_stage2
 This project exists thanks to all the people who contribute.
 <a href="https://github.com/xiaodaigh/disk.frame/graphs/contributors"><img src="https://opencollective.com/diskframe/contributors.svg?width=890&button=false" /></a>
 
+## Current Priorities
+
+The work priorities at this stage are
+
+1.  Bugs
+2.  Urgent feature implementations that can improve an awful
+    user-experience
+3.  More vignettes covering every aspect of disk.frame
+4.  Comprehensive Tests
+5.  Comprehensive Documentation
+6.  More features
+
+## Blogs and other resources
+
+| Title                                                                                                                        | Author          | Date     | Description                                        |
+| ---------------------------------------------------------------------------------------------------------------------------- | --------------- | -------- | -------------------------------------------------- |
+| [`{disk.frame}` is epic](https://www.brodrigues.co/blog/2019-09-03-disk_frame/)                                              | Bruno Rodriguez | 20190903 | It’s about loading a 30G file into `{disk.frame}`  |
+| [My top 10 R packages for data analytics](https://www.actuaries.digital/2019/09/26/my-top-10-r-packages-for-data-analytics/) | Jacky Poon      | 20190903 | `{disk.frame}` was number 3                        |
+| [Emma goes to useR\! 2019](https://emmavestesson.netlify.com/2019/07/user2019/)                                              | Emma Vestesson  | 20190716 | The first mention of `{disk.frame}` in a blog post |
+| [useR\! 2019 presentation video](https://www.youtube.com/watch?v=3XMTyi_H4q4)                                                | Dai ZJ          | 20190803 |                                                    |
+| [useR\! 2019 presentation slides](https://www.beautiful.ai/player/-LphQ0YaJwRektb8nZoY)                                      | Dai ZJ          | 20190803 |                                                    |
+
 ## Open Collective
 
-If you like disk.frame and want to speed up its development or perhaps
-you have a feature request? Please consider sponsoring me on Open
-Collective
+If you like `{disk.frame}` and want to speed up its development or
+perhaps you have a feature request? Please consider sponsoring
+`{disk.frame}` on Open Collective
 
 ### Backers
 
-Thank you to all our backers\! 🙏 \[[Become a
+Thank you to all our backers\! \[[Become a
 backer](https://opencollective.com/diskframe#backer)\]
 
 <a href="https://opencollective.com/diskframe#backers" target="_blank"><img src="https://opencollective.com/diskframe/backers.svg?width=890"></a>
 
-[![Backers on Open
-Collective](https://opencollective.com/diskframe/backers/badge.svg)](#backers)
-
 ### Sponsors
 
-Support this project by becoming a sponsor. Your logo will show up here
-with a link to your website. \[[Become a
+Support `{disk.frame}` development by becoming a sponsor. Your logo will
+show up here with a link to your website. \[[Become a
 sponsor](https://opencollective.com/diskframe#sponsor)\]
 
-[![Sponsors on Open
-Collective](https://opencollective.com/diskframe/sponsors/badge.svg)](#sponsors)
+<a href="https://opencollective.com/diskframe#sponsors" target="_blank"><img src="https://opencollective.com/diskframe/sponsors.svg?width=890"></a>
 
 ## Contact me for consulting
 
 **Do you need help with machine learning and data science in R, Python,
-or Julia?** [![Contact me on
-Codementor](https://cdn.codementor.io/badges/contact_me_github.svg)](https://www.codementor.io/evalparse)
-
-I am available for Machine Learning/Data Science/R/Python/Julia
-consulting\! [Email me](mailto:dzj@analytixware.com) to get 10% discount
-off the hourly rate.
+or Julia?** I am available for Machine Learning/Data
+Science/R/Python/Julia consulting\! [Email
+me](mailto:dzj@analytixware.com)

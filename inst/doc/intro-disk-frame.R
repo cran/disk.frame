@@ -89,10 +89,10 @@ mutate(flights.df, speed = distance / air_time * 60) %>% collect %>% head
 
 ## ---- dependson='asdiskframe'--------------------------------------------
 # this only sorts within each chunk
-arrange(flights.df, dplyr::desc(dep_delay)) %>% collect %>% head
+chunk_arrange(flights.df, dplyr::desc(dep_delay)) %>% collect %>% head
 
 ## ---- dependson='asdiskframe'--------------------------------------------
-summarize(flights.df, mean_dep_delay = mean(dep_delay, na.rm =T)) %>% collect
+chunk_summarize(flights.df, mean_dep_delay = mean(dep_delay, na.rm =T)) %>% collect
 
 ## ---- dependson='asdiskframe'--------------------------------------------
 c4 <- flights %>%
@@ -107,14 +107,14 @@ c4  %>% head
 ## ---- dependson='asdiskframe'--------------------------------------------
 flights.df %>%
   hard_group_by(carrier) %>% # notice that hard_group_by needs to be set
-  summarize(count = n(), mean_dep_delay = mean(dep_delay, na.rm=T)) %>%  # mean follows normal R rules
+  chunk_summarize(count = n(), mean_dep_delay = mean(dep_delay, na.rm=T)) %>%  # mean follows normal R rules
   collect %>% 
   arrange(carrier)
 
 ## ---- dependson='asdiskframe'--------------------------------------------
 flights.df %>%
-  group_by(carrier) %>% # `group_by` aggregates within each chunk
-  summarize(count = n()) %>%  # mean follows normal R rules
+  chunk_group_by(carrier) %>% # `chunk_group_by` aggregates within each chunk
+  chunk_summarize(count = n()) %>%  # mean follows normal R rules
   collect %>%  # collect each individul chunks results and row-bind into a data.table
   group_by(carrier) %>% 
   summarize(count = sum(count)) %>% 
@@ -124,7 +124,7 @@ flights.df %>%
 flights.df %>%
   srckeep(c("carrier","dep_delay")) %>%
   hard_group_by(carrier) %>% 
-  summarize(count = n(), mean_dep_delay = mean(dep_delay, na.rm=T)) %>%  # mean follows normal R rules
+  chunk_summarize(count = n(), mean_dep_delay = mean(dep_delay, na.rm=T)) %>%  # mean follows normal R rules
   collect
 
 ## ----airlines_dt, dependson='asdiskframe', cache=TRUE--------------------
@@ -146,7 +146,7 @@ flights.df %>%
 # Find the most and least delayed flight each day
 bestworst <- flights.df %>%
    srckeep(c("year","month","day", "dep_delay")) %>%
-   group_by(year, month, day) %>%
+   chunk_group_by(year, month, day) %>%
    select(dep_delay) %>%
    filter(dep_delay == min(dep_delay, na.rm = T) || dep_delay == max(dep_delay, na.rm = T)) %>%
    collect
@@ -158,7 +158,7 @@ bestworst %>% head
 # Rank each flight within a daily
 ranked <- flights.df %>%
   srckeep(c("year","month","day", "dep_delay")) %>%
-  group_by(year, month, day) %>%
+  chunk_group_by(year, month, day) %>%
   select(dep_delay) %>%
   mutate(rank = rank(desc(dep_delay))) %>%
   collect
