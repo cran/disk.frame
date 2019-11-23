@@ -27,11 +27,20 @@ broom::tidy(m)
 ## ----dependson='setup'---------------------------------------------------
 cars.df = as.disk.frame(cars)
 
-m = dfglm(dist ~speed, cars.df)
+m = dfglm(dist ~ speed, cars.df)
 
 summary(m)
 
-broom::tidy(m)
+
+majorv = as.integer(version$major)
+minorv = as.integer(strsplit(version$minor, ".", fixed=TRUE)[[1]][1])
+
+if((majorv == 3) & (minorv >= 6)) {
+  broom::tidy(m)
+} else {
+  # broom doesn't work in version < R3.6 because biglm does not work
+}
+
 
 ## ----dependson='setup'---------------------------------------------------
 iris.df = as.disk.frame(iris)
@@ -48,5 +57,13 @@ iris_model = dfglm(formula , data = iris.df, family=binomial())
 
 summary(iris_model)
 
-broom::tidy(iris_model)
+majorv = as.integer(version$major)
+minorv = as.integer(strsplit(version$minor, ".", fixed=TRUE)[[1]][1])
+
+if((majorv == 3) & (minorv >= 6)) {
+  broom::tidy(iris_model)
+} else {
+  # broom doesn't work in version < R3.6 because biglm does not work
+}
+
 
