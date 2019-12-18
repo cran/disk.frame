@@ -1,3 +1,10 @@
+# disk.frame 0.3.0
+* experimental one-stage group-by framework!
+* bug fixes for data.table trigger by integration with tidyfast
+* removed assertthat from imports
+* add benchmarkme to Suggests
+
+
 # disk.frame 0.2.1
 * got rid of benchmarkme as a dependency
 * added `hard_arrange` thanks to Jacky Poon

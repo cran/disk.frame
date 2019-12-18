@@ -5,11 +5,19 @@
 \alias{output_disk.frame}
 \title{Write disk.frame to disk}
 \usage{
-write_disk.frame(df, outdir = tempfile(fileext = ".df"),
+write_disk.frame(
+  df,
+  outdir = tempfile(fileext = ".df"),
   nchunks = ifelse("disk.frame" \%in\% class(df), nchunks.disk.frame(df),
-  recommend_nchunks(df)), overwrite = FALSE, shardby = NULL,
-  compress = 50, shardby_function = "hash", sort_splits = NULL,
-  desc_vars = NULL, ...)
+    recommend_nchunks(df)),
+  overwrite = FALSE,
+  shardby = NULL,
+  compress = 50,
+  shardby_function = "hash",
+  sort_splits = NULL,
+  desc_vars = NULL,
+  ...
+)
 
 output_disk.frame(...)
 }
@@ -32,7 +40,7 @@ output_disk.frame(...)
 
 \item{desc_vars}{for the "sort" shardby function, the variables to sort descending.}
 
-\item{...}{passed to map.disk.frame}
+\item{...}{passed to cmap.disk.frame}
 }
 \description{
 Write a data.frame/disk.frame to a disk.frame location. If df is a data.frame
@@ -42,7 +50,7 @@ then using the as.disk.frame function is recommended for most cases
 cars.df = as.disk.frame(cars)
 
 # write out a lazy disk.frame to disk
-cars2.df = write_disk.frame(map(cars.df, ~.x[1,]), overwrite = TRUE)
+cars2.df = write_disk.frame(cmap(cars.df, ~.x[1,]), overwrite = TRUE)
 collect(cars2.df)
 
 # clean up cars.df

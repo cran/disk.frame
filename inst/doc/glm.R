@@ -1,10 +1,10 @@
-## ---- include = FALSE----------------------------------------------------
+## ---- include = FALSE---------------------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
 
-## ----setup, cache=TRUE---------------------------------------------------
+## ----setup, cache=TRUE--------------------------------------------------------
 suppressPackageStartupMessages(library(disk.frame))
 
 if(interactive()) {
@@ -15,16 +15,16 @@ if(interactive()) {
 }
 
 
-## ----glm, cache=TRUE-----------------------------------------------------
+## ----glm, cache=TRUE----------------------------------------------------------
 m = glm(dist ~ speed, data = cars)
 
-## ---- depeondson='glm'---------------------------------------------------
+## ---- depeondson='glm'--------------------------------------------------------
 summary(m)
 
-## ---- depeondson='glm'---------------------------------------------------
+## ---- depeondson='glm'--------------------------------------------------------
 broom::tidy(m)
 
-## ----dependson='setup'---------------------------------------------------
+## ----dependson='setup'--------------------------------------------------------
 cars.df = as.disk.frame(cars)
 
 m = dfglm(dist ~ speed, cars.df)
@@ -42,7 +42,7 @@ if((majorv == 3) & (minorv >= 6)) {
 }
 
 
-## ----dependson='setup'---------------------------------------------------
+## ----dependson='setup'--------------------------------------------------------
 iris.df = as.disk.frame(iris)
 
 # fit a logistic regression model to predict Speciess == "setosa" using all variables

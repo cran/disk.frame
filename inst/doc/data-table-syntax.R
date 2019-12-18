@@ -1,10 +1,10 @@
-## ---- include = FALSE----------------------------------------------------
+## ---- include = FALSE---------------------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
 
-## ----setup_data_table, cache=TRUE----------------------------------------
+## ----setup_data_table, cache=TRUE---------------------------------------------
 library(disk.frame)
 
 # set-up disk.frame to use multiple workers
@@ -23,7 +23,7 @@ library(nycflights13)
 # create a disk.frame
 flights.df = as.disk.frame(nycflights13::flights, outdir = file.path(tempdir(),"flights13"), overwrite = TRUE)
 
-## ----ok, dependson='setup_data_table'------------------------------------
+## ----ok, dependson='setup_data_table'-----------------------------------------
 library(data.table)
 library(disk.frame)
 
@@ -33,13 +33,13 @@ names(flights.df)
 
 flights.df[,.N, .(year, month), keep = c("year", "month")]
 
-## ----var_detect, dependson='setup_data_table'----------------------------
+## ----var_detect, dependson='setup_data_table'---------------------------------
 y = 42 
 some_fn <- function(x) x
 
 
 flights.df[,some_fn(y)]
 
-## ----clean_up, include=FALSE---------------------------------------------
+## ----clean_up, include=FALSE--------------------------------------------------
 fs::dir_delete(file.path(tempdir(),"flights13"))
 

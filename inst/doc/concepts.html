@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
@@ -14,7 +13,7 @@
 <meta name="author" content="ZJ" />
 
 
-<title>Key disk.frame concepts</title>
+<title>Key {disk.frame} concepts</title>
 
 
 
@@ -301,20 +300,22 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 
 
 
-<h1 class="title toc-ignore">Key disk.frame concepts</h1>
+<h1 class="title toc-ignore">Key <code>{disk.frame}</code> concepts</h1>
 <h4 class="author">ZJ</h4>
 
 
 
+<div id="key-disk.frame-concepts" class="section level1">
+<h1>Key <code>{disk.frame}</code> concepts</h1>
 <p>There are a number of concepts and terminologies that are useful to understand in order to use <code>disk.frame</code> effectively.</p>
 <div id="what-is-a-disk.frame-and-what-are-chunks" class="section level2">
 <h2>What is a <code>disk.frame</code> and what are chunks?</h2>
-<p>A <code>disk.frame</code> is nothing more a folder and in that folder there should be <a href="https://www.fstpackage.org/"><code>fst</code></a> files named “1.fst”, “2.fst”, “3.fst” etc. Each of the “.fst” file is called a <em>chunk</em>.</p>
+<p>A <code>disk.frame</code> is a folder containing <a href="https://www.fstpackage.org/"><code>fst</code></a> files named “1.fst”, “2.fst”, “3.fst” etc. Each of the “.fst” file is called a <em>chunk</em>.</p>
 </div>
 <div id="workers-and-parallelism" class="section level2">
 <h2>Workers and parallelism</h2>
 <p>Parallelism in <code>disk.frame</code> is achieved using the <a href="https://cran.r-project.org/package=future"><code>future</code> package</a>. When performing many tasks, <code>disk.frame</code> uses multiple workers, where each <em>worker</em> is an R session, to perform the tasks in parallel.</p>
-<p>It is recommended that you should running these to set-up immediately after you <code>library(disk.frame)</code>. For example:</p>
+<p>It is recommended that you should run the following immediately after <code>library(disk.frame)</code> to set-up multiple workers. For example:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">library</span>(disk.frame)</a>
 <a class="sourceLine" id="cb1-2" title="2"><span class="kw">setup_disk.frame</span>()</a>
 <a class="sourceLine" id="cb1-3" title="3"></a>
@@ -330,6 +331,13 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <p>To see how many workers are at work, use</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="co"># see how many workers are available for work</span></a>
 <a class="sourceLine" id="cb4-2" title="2">future<span class="op">::</span><span class="kw">nbrOfWorkers</span>()</a></code></pre></div>
+</div>
+<div id="how-disk.frame-works" class="section level2">
+<h2>How <code>{disk.frame}</code> works</h2>
+<p>When <code>df %&gt;% some_fn %&gt;% collect</code> is called. The <code>some_fn</code> is applied to each chunk of <code>df</code>. The collect will row-bind the results from <code>some_fn(chunk)</code>together if the returned value of <code>some_fn</code> is a data.frame, or it will return a <code>list</code> containing the results of <code>some_fn</code>.</p>
+<p>The session that receives these results is called the <strong>main session</strong>. In general, we should try to minimize the amount of data passed from the worker sessions back to the main session, because passing data around can be slow.</p>
+<p>Also, please note that there is no communication between the workers, except for workers passing data back to the main session.</p>
+</div>
 </div>
 
 

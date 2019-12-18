@@ -20,7 +20,7 @@
 #'
 #' # recommend nchunks based on file size ONLY CSV is implemented at the moment
 #' recommend_nchunks(1024^3)
-recommend_nchunks <- function(df, type = "csv", minchunks = parallel::detectCores(logical = FALSE), conservatism = 2, ram_size = df_ram_size()) {
+recommend_nchunks <- function(df, type = "csv", minchunks = data.table::getDTthreads(), conservatism = 8, ram_size = df_ram_size()) {
   
   dfsize = 0
   if ("data.frame" %in% class(df)) {
@@ -35,13 +35,13 @@ recommend_nchunks <- function(df, type = "csv", minchunks = parallel::detectCore
     dfsize = df/1024/1024/1024
   }
 
-  ram_size = df_ram_size()
+  # ram_size = df_ram_size()
     
   # the number physical cores not counting hyper threaded ones as 2; they are counted as 1
-  nc = parallel::detectCores(logical = FALSE)
+  nc = data.table::getDTthreads() #parallel::detectCores(logical = FALSE)
   
   
-  max(round(dfsize/ram_size*nc)*nc*conservatism, minchunks)
+  max(round(dfsize/ram_size*conservatism)*nc, minchunks)
 }
 
 
@@ -115,9 +115,29 @@ df_ram_size <- function() {
     
     return(ram_size)
   }, error = function(e) {
-    warning("RAM size can't be determined. Assume you have 16GB of RAM.")
-    warning("Please report this error github.com/xiaodaigh/disk.frame/issues")
-    warning(glue::glue("Please include your operating system, R version, and if using RStudio the Rstudio version number"))
-    return(16)
+    if(requireNamespace("benchmarkme")) {
+      ram_size = benchmarkme::get_ram()/1024^3
+      
+      if(is.na(ram_size)) {
+        warning("RAM size can't be determined. Assume you have 16GB of RAM.")
+        warning("Please report this error at github.com/xiaodaigh/disk.frame/issues")
+        warning(glue::glue("Please include your operating system, R version, and if using RStudio the Rstudio version number"))
+        return(16)
+      } else {
+        ram_size = max(ram_size, 1, na.rm = TRUE)
+        return(ram_size)
+      }
+    } else{
+      if(is.na(ram_size)) {
+        warning("RAM size can't be determined. Assume you have 16GB of RAM.")
+        warning("Please try to install install.packages('benchmarkme') and try again.")
+        warning("If error persists, please report this error at github.com/xiaodaigh/disk.frame/issues")
+        warning(glue::glue("Please include your operating system, R version, and if using RStudio the Rstudio version number"))
+        return(16)
+      } else {
+        ram_size = max(ram_size, 1, na.rm = TRUE)
+        return(ram_size)
+      }
+    }
   })
 }

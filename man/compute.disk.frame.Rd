@@ -4,8 +4,13 @@
 \alias{compute.disk.frame}
 \title{Compute without writing}
 \usage{
-\method{compute}{disk.frame}(x, name, outdir = tempfile("tmp_df_",
-  fileext = ".df"), overwrite = TRUE, ...)
+\method{compute}{disk.frame}(
+  x,
+  name,
+  outdir = tempfile("tmp_df_", fileext = ".df"),
+  overwrite = TRUE,
+  ...
+)
 }
 \arguments{
 \item{x}{a disk.frame}
@@ -19,11 +24,11 @@
 \item{...}{Not used. Kept for dplyr compatibility}
 }
 \description{
-Perform the computation; same as calling map without .f and lazy = FALSE
+Perform the computation; same as calling cmap without .f and lazy = FALSE
 }
 \examples{
 cars.df = as.disk.frame(cars)
-cars.df2 = cars.df \%>\% map(~.x)
+cars.df2 = cars.df \%>\% cmap(~.x)
 # the computation is performed and the data is now stored elsewhere
 cars.df3 = compute(cars.df2)
 

@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
@@ -306,7 +305,10 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 
 
 
-<p>Let’s set-up <code>disk.frame</code></p>
+<div id="ingesting-data" class="section level1">
+<h1>Ingesting Data</h1>
+<p>One of the most important tasks to perform before using the <code>{disk.frame}</code> package is to make some <code>disk.frame</code>s! There are a few functions to help you do that. Before we do that, we set up the <code>{disk.frame}</code> as usual</p>
+<p><strong>Setting up</strong></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">library</span>(disk.frame)</a>
 <a class="sourceLine" id="cb1-2" title="2"></a>
 <a class="sourceLine" id="cb1-3" title="3"><span class="co"># set-up disk.frame to use multiple workers</span></a>
@@ -318,10 +320,9 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <a class="sourceLine" id="cb1-9" title="9">} <span class="cf">else</span> {</a>
 <a class="sourceLine" id="cb1-10" title="10">  <span class="kw">setup_disk.frame</span>(<span class="dv">2</span>)</a>
 <a class="sourceLine" id="cb1-11" title="11">}</a></code></pre></div>
-<p>One of the most important tasks to perform before using the <code>disk.frame</code> package is to make some <code>disk.frame</code>s! There are a few functions to help you do that.</p>
 <div id="convert-a-data.frame-to-disk.frame" class="section level2">
 <h2>Convert a <code>data.frame</code> to <code>disk.frame</code></h2>
-<p>Firstly there is <code>as.disk.frame()</code> which allows you to make a <code>disk.frame</code> from a <code>data.frame</code>, e.g.</p>
+<p>Firstly, there is <code>as.disk.frame()</code> which allows you to make a <code>disk.frame</code> from a <code>data.frame</code>, e.g.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1">flights.df =<span class="st"> </span><span class="kw">as.disk.frame</span>(nycflights13<span class="op">::</span>flights)</a></code></pre></div>
 <p>will convert the <code>nycflights13::flights</code> <code>data.frame</code> to a <code>disk.frame</code> somewhere in <code>tempdir()</code>. To find out the location of the <code>disk.frame</code> use:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">attr</span>(flights.df, <span class="st">&quot;path&quot;</span>)</a></code></pre></div>
@@ -412,6 +413,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <div id="exploiting-the-structure-of-a-disk.frame" class="section level2">
 <h2>Exploiting the structure of a disk.frame</h2>
 <p>Of course, a <code>disk.frame</code> is just a folder with many <code>fst</code> files named as <code>1.fst</code>, <code>2.fst</code> etc. So one can simply create these <code>fst</code> files and ensure they have the same variable names and put them in a folder.</p>
+</div>
 </div>
 
 
