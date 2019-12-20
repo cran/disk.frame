@@ -1,7 +1,7 @@
-428f143500258349d459d7439b974027 *DESCRIPTION
+ad6ad2cf19a4a031bbd7c07cf9561692 *DESCRIPTION
 12ff4d71a793956540508c1b197d61e0 *LICENSE
 849d3501ff6d5d6d87498bd50114953a *NAMESPACE
-e66b9a53ea9c4be29a895d3acfcab35d *NEWS.md
+376244795ac6b388e490ba6616a552d1 *NEWS.md
 8fd11c2477df88eb0b9874c47c1b3e12 *R/RcppExports.R
 721bb8ad4fae2eb2310194b105ed57d2 *R/add_chunk.r
 3d1987385ec6d2eb714417582b47197d *R/anti_join.r
@@ -38,7 +38,7 @@ cc3a8c026403adc50c071c81b7347282 *R/map-deprecated.r
 e7bdc60d3ab95068694a485a5c318d14 *R/nchunks.r
 4cfc2a267d5cd5a25d35045872918f03 *R/ncol-nrow.r
 a94e3d7cc20d1ad06834b6de0716a230 *R/nest_join.r
-e2e27e6ceab2660e5bdf3bbe612fccea *R/one-stage-verbs.R
+0d5a543c678a9e70f2bb6e41906ef28b *R/one-stage-verbs.R
 8f4ca2c650527a11f874c713b2081062 *R/overwrite_check.r
 4467290805ec463a70e17fe36cb1142d *R/print.disk.frame.r
 3ff97b6399dabb63e08c38f0176bf63d *R/rbindlist.disk.frame.r
@@ -61,7 +61,7 @@ c840f4a7a771abae99211ee5f6bb2ee4 *R/util.r
 cb8a510043204df0e75779f196a84249 *R/write_disk.frame.r
 715e3916d4da357b5efd6046bc7b7c24 *R/zip_to_disk.frame.r
 1b69822df12aac3093b661ed9180bd6c *R/zzz.r
-382078a121dc597b11ab1cce272d7abc *README.md
+fbcbcf368ce027dfa59b9ee80e4ea3f1 *README.md
 722ca5b514755cbfe5051709ce0b05bd *build/vignette.rds
 e8c98e39c7a9fcb4b53cb90eb37e61cc *inst/doc/concepts.R
 75d2a30f236c8189a4a2d07528103ac9 *inst/doc/concepts.Rmd
