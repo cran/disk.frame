@@ -1,8 +1,8 @@
 Type: Package
 Package: disk.frame
 Title: Larger-than-RAM Disk-Based Data Manipulation Framework
-Version: 0.3.1
-Date: 2019-12-20
+Version: 0.3.2
+Date: 2020-01-18
 Authors@R: c(
   person("Dai", "ZJ", email = "zhuojia.dai@gmail.com", role = c("aut", "cre")),
   person("Jacky", "Poon", role = c("ctb"))
@@ -30,8 +30,8 @@ Encoding: UTF-8
 URL: https://diskframe.com
 BugReports: https://github.com/xiaodaigh/disk.frame/issues
 NeedsCompilation: yes
-Packaged: 2019-12-20 01:54:02 UTC; RTX2080
+Packaged: 2020-01-18 11:28:08 UTC; RTX2080
 Author: Dai ZJ [aut, cre],
   Jacky Poon [ctb]
 Repository: CRAN
-Date/Publication: 2019-12-20 09:00:02 UTC
+Date/Publication: 2020-01-19 18:20:07 UTC

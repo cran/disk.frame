@@ -1,3 +1,7 @@
+# disk.frame 0.3.2
+* removed usage proc/meminfo inline with CRAN policy
+* added (experimental) bloomfilter
+
 # disk.frame 0.3.1
 * urgent bug fix for group-by failing when the number chunks is 1; see Github #241
 
