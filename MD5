@@ -1,13 +1,13 @@
-87356fe0d6c303bff41d85e75652ca82 *DESCRIPTION
+d51bf692fc3516beb6755a0bba405f72 *DESCRIPTION
 12ff4d71a793956540508c1b197d61e0 *LICENSE
-a611ad04b1f6e0a35769ee5f6faf0f4e *NAMESPACE
-16c9fb2fd8e636fa4b06bb837f5c4cfe *NEWS.md
+1875fea9f5560c8561a12321679d29bb *NAMESPACE
+fd34e21366e2399468d90f543d0e32a1 *NEWS.md
 416d45af1da1c19bfd1defa687d1312e *R/RcppExports.R
 68e6d1b467b5ebc341843fddaa4af1a0 *R/add_chunk.r
 3d1987385ec6d2eb714417582b47197d *R/anti_join.r
 a8f78ee720c77550faf1cda157e46a06 *R/as.data.frame.r
 36f46a0103eab561e2c434aa1bf8b9e3 *R/as.disk.frame.r
-32a28fe3d02a222c2ec967fe326aeef9 *R/bloom-filter.r
+ba0f9290b8007200dd8525653083e4fe *R/bloom-filter.r
 b03ae3e8cc49c2dbaf9b6035eb00122b *R/chunk_mapper.r
 0f8bc82dda7dfbd702ae231b3fe67a87 *R/cmap.r
 fceaee9f76a5720f7020131876b7c36c *R/collect.r
@@ -62,7 +62,7 @@ c840f4a7a771abae99211ee5f6bb2ee4 *R/util.r
 cb8a510043204df0e75779f196a84249 *R/write_disk.frame.r
 715e3916d4da357b5efd6046bc7b7c24 *R/zip_to_disk.frame.r
 2e744454a0c9b642f5c4451a950cd127 *R/zzz.r
-05d35841c4b0258eedfc68d9c566ef9e *README.md
+87a0684b4ab50a54167228dde3bc0dc6 *README.md
 722ca5b514755cbfe5051709ce0b05bd *build/vignette.rds
 e8c98e39c7a9fcb4b53cb90eb37e61cc *inst/doc/concepts.R
 75d2a30f236c8189a4a2d07528103ac9 *inst/doc/concepts.Rmd
@@ -75,7 +75,7 @@ cf92c9782c856c3fc09c47c600d77300 *inst/doc/convenience-features.Rmd
 bcb03398611c9935a1b150fc34ac0099 *inst/doc/custom-group-by.html
 6f6b187b9a2c48b12b18f4510dbcd687 *inst/doc/data-table-syntax.R
 540e1c907e975f99f84b3b440d310ee6 *inst/doc/data-table-syntax.Rmd
-91c86f5af84d9f9ad3e79f5de53bd114 *inst/doc/data-table-syntax.html
+ce26845ea3856e0b8bbd80583afc9377 *inst/doc/data-table-syntax.html
 e1817fd96cc121d0975fe457a7a66173 *inst/doc/glm.R
 982d311fd929b513c25fb13631a0d4a2 *inst/doc/glm.Rmd
 c5d6d202c0854b201bf1c0d9860f7068 *inst/doc/glm.html
@@ -100,7 +100,6 @@ cb4696eec9c69a9abe5977c7ca606079 *man/add_chunk.Rd
 bb4ec3716d49a3ec47003f8cb98b27f2 *man/as.data.frame.disk.frame.Rd
 b85b8004440cd83e12c874db8dc90ebf *man/as.data.table.disk.frame.Rd
 c8e1f6ac20848ed6bc96d2209085f47e *man/as.disk.frame.Rd
-e0157e6fa78113b4f83f0ba395dd1aee *man/bloomfilter.Rd
 58f54ab51de12d03c8e5510907646a4c *man/chunk_group_by.Rd
 8960e2e6a23b36745886f7a707b8a2dc *man/cmap.Rd
 c59e6cf2ba5b3ab5d1480c3ff9963d1e *man/cmap2.Rd
