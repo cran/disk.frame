@@ -279,6 +279,15 @@ obtained using estimated methods.
 
 ``` r
 library(data.table)
+#> data.table 1.12.8 using 6 threads (see ?getDTthreads).  Latest news: r-datatable.com
+#> 
+#> Attaching package: 'data.table'
+#> The following object is masked from 'package:purrr':
+#> 
+#>     transpose
+#> The following objects are masked from 'package:dplyr':
+#> 
+#>     between, first, last
 
 grp_by_stage1 = 
   flights.df[
@@ -287,16 +296,17 @@ grp_by_stage1 =
     .(sum_dist = sum(distance)), 
     .(qtr = ifelse(month <= 3, "Q1", "Q2"))
     ]
+#> Warning in serialize(data, node$con): 'package:stats' may not be available when loading
 #> Warning in serialize(data, node$con): 'package:data.table' may not be available when loading
-
+#> Warning in serialize(data, node$con): 'package:stats' may not be available when loading
 #> Warning in serialize(data, node$con): 'package:data.table' may not be available when loading
-
+#> Warning in serialize(data, node$con): 'package:stats' may not be available when loading
 #> Warning in serialize(data, node$con): 'package:data.table' may not be available when loading
-
+#> Warning in serialize(data, node$con): 'package:stats' may not be available when loading
 #> Warning in serialize(data, node$con): 'package:data.table' may not be available when loading
-
+#> Warning in serialize(data, node$con): 'package:stats' may not be available when loading
 #> Warning in serialize(data, node$con): 'package:data.table' may not be available when loading
-
+#> Warning in serialize(data, node$con): 'package:stats' may not be available when loading
 #> Warning in serialize(data, node$con): 'package:data.table' may not be available when loading
 
 grp_by_stage1
@@ -328,7 +338,7 @@ To find out where the disk.frame is stored on disk:
 ``` r
 # where is the disk.frame stored
 attr(flights.df, "path")
-#> [1] "C:\\Users\\RTX2080\\AppData\\Local\\Temp\\Rtmp2VIH25\\file38981e55443f.df"
+#> [1] "C:\\Users\\RTX2080\\AppData\\Local\\Temp\\Rtmp4waGOd\\file30ec769f579e.df"
 ```
 
 A number of data.frame functions are implemented for disk.frame

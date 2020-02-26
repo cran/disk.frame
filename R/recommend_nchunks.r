@@ -13,6 +13,7 @@
 #' @param ram_size The amount of RAM available which is usually computed. Except on RStudio with R3.6+
 #' @importFrom pryr object_size
 #' @importFrom utils memory.limit
+#' @importFrom benchmarkme get_ram
 #' @export
 #' @examples
 #' # recommend nchunks based on data.frame
@@ -100,7 +101,6 @@ df_ram_size <- function() {
       l = strsplit(a, " ")[[1]]
       l = as.numeric(l[length(l)-1])
       ram_size = l/1024^2
-      #ram_size = benchmarkme::get_ram()/1024/1024/1024
     } 
     
     if(is.null(ram_size)) {
@@ -128,16 +128,9 @@ df_ram_size <- function() {
         return(ram_size)
       }
     } else{
-      if(is.na(ram_size)) {
-        warning("RAM size can't be determined. Assume you have 16GB of RAM.")
-        warning("Please try to install install.packages('benchmarkme') and try again.")
-        warning("If error persists, please report this error at github.com/xiaodaigh/disk.frame/issues")
-        warning(glue::glue("Please include your operating system, R version, and if using RStudio the Rstudio version number"))
-        return(16)
-      } else {
-        ram_size = max(ram_size, 1, na.rm = TRUE)
-        return(ram_size)
-      }
+      warning("RAM size can't be determined. Assume you have 16GB of RAM.")
+      warning("You can try to `install.packages('benchmarkme')` as that may help determine RAM size")
+      return(16)
     }
   })
 }
