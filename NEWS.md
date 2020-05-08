@@ -1,3 +1,7 @@
+# disk.frame 0.3.5
+* Support for !!! in summarise; github #250
+* Added `dplyr::pull` verb
+
 # disk.frame 0.3.4
 * fixed vignette bug and all vignette are now in static pdf
 * fixed bugs with group-by when run with Rscript
