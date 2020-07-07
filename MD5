@@ -1,9 +1,9 @@
-f98dbd1b35908d65f94a28567ce0c3a6 *DESCRIPTION
+07538b7bbd3f7eb0f2c13675f432eaa7 *DESCRIPTION
 12ff4d71a793956540508c1b197d61e0 *LICENSE
 c56f499a5a451f9a580937af993e135c *NAMESPACE
-48f5473e0fba656a4e45cc472f26b683 *NEWS.md
+0b85272a17db694b70169bc72141034e *NEWS.md
 416d45af1da1c19bfd1defa687d1312e *R/RcppExports.R
-68e6d1b467b5ebc341843fddaa4af1a0 *R/add_chunk.r
+acb05b8af7949a83872132f117e37a3d *R/add_chunk.r
 3d1987385ec6d2eb714417582b47197d *R/anti_join.r
 a8f78ee720c77550faf1cda157e46a06 *R/as.data.frame.r
 36f46a0103eab561e2c434aa1bf8b9e3 *R/as.disk.frame.r
@@ -42,7 +42,7 @@ a94e3d7cc20d1ad06834b6de0716a230 *R/nest_join.r
 dbb3d08c5ae92cd8aa168158edd4731a *R/one-stage-verbs.R
 8f4ca2c650527a11f874c713b2081062 *R/overwrite_check.r
 5f8f40613d1fbdf227e1e8701a13f89b *R/print.disk.frame.r
-e77f07132c91ad940e9db113e0f45efa *R/pull.r
+5a42354f04c0fac00154b39c18ea007c *R/pull.r
 1a353fef849f846a9b86b3179b4dd65a *R/rbindlist.disk.frame.r
 41ac2a6cfb327405f27499cdd630fd82 *R/rechunk.r
 68b0738b9ac3f41fc12f0427624d699a *R/recommend_nchunks.r
@@ -63,7 +63,7 @@ c840f4a7a771abae99211ee5f6bb2ee4 *R/util.r
 cb8a510043204df0e75779f196a84249 *R/write_disk.frame.r
 715e3916d4da357b5efd6046bc7b7c24 *R/zip_to_disk.frame.r
 2e744454a0c9b642f5c4451a950cd127 *R/zzz.r
-8fd87cd5cf04d7f04f35ae636d8388c8 *README.md
+baa2c1b379e7b1029357cd5188f1c2a6 *README.md
 bbab7c6d38183365df9681a503b015cd *inst/figures/disk.frame.png
 685d59699c6fbee8ca78e77aaa9f5b0f *inst/figures/hex-logo-1200.png
 e4f2908425c6476e6ddcb31df1ad66bf *inst/figures/linkedin1.PNG
@@ -72,7 +72,7 @@ b096c047d122e315418ad32fbe11746f *inst/figures/logo.svg
 c1b70e39758eb8aa6d0d792fe3485978 *inst/figures/settings-gui.PNG
 0e0bc0ac312b0e930d357ffd63911269 *inst/options.rmd
 ebf5b0de2e795ce11bb1e1ea846147c4 *inst/shard-test.r
-138561f706c1c8254f866b8370bcd92d *man/add_chunk.Rd
+8cac0f6e2b872677c219120e44a07622 *man/add_chunk.Rd
 bb4ec3716d49a3ec47003f8cb98b27f2 *man/as.data.frame.disk.frame.Rd
 b85b8004440cd83e12c874db8dc90ebf *man/as.data.table.disk.frame.Rd
 c8e1f6ac20848ed6bc96d2209085f47e *man/as.disk.frame.Rd
@@ -110,7 +110,7 @@ d9d745e3cb29af549745d2c4d04591e5 *man/nchunks.Rd
 f7f5e21e2c265b078d465092f35278a9 *man/one-stage-group-by-verbs.Rd
 4023719b7b485eba8bdeb712ac0c0976 *man/overwrite_check.Rd
 767b3d0bec2165fe69e1d83862625f3e *man/print.disk.frame.Rd
-9af1756a1edecde5d64be488ea58f914 *man/pull.disk.frame.Rd
+bb5be42d38c2340817f55cb5c88d9214 *man/pull.disk.frame.Rd
 00d229409aad9ebc88ec51befaa2bcad *man/rbindlist.disk.frame.Rd
 3c50172cb6324ec4888e19bc011b179e *man/rechunk.Rd
 33c2c411578fc067ade421fa9827ee82 *man/recommend_nchunks.Rd

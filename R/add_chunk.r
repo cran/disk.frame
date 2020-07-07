@@ -13,6 +13,7 @@
 #'   will be set to the largest chunk_id + 1
 #' @param full.names whether the chunk_id name match should be to the full file
 #'   path not just the file name
+#' @param ... Passed in the write_fst. E.g. compress
 #' @importFrom data.table data.table
 #' @importFrom utils capture.output
 #' @export
@@ -44,7 +45,7 @@
 #' # clean up
 #' delete(diskf)
 #' delete(df2)
-add_chunk <- function(df, chunk, chunk_id = NULL, full.names = FALSE) {
+add_chunk <- function(df, chunk, chunk_id = NULL, full.names = FALSE, ...) {
   # sometimes chunk_id is defined in terms of itself
   force(chunk_id)
   stopifnot("disk.frame" %in% class(df))
@@ -129,7 +130,7 @@ add_chunk <- function(df, chunk, chunk_id = NULL, full.names = FALSE) {
     metas_df_summ1[, incompatible_types := {
       coltypes.x %in% c("integer", "double", "Date") & coltypes.y == "character" |
       coltypes.x == "character" & coltypes.y %in% c("integer", "double", "Date") |
-      coltypes.x %in% c("integer", "double") & coltypes.y == "Date" | 
+      coltypes.x == "integer" & coltypes.y == "Date" | 
       coltypes.x == "Date" & coltypes.y %in% c("integer", "double")
     }]
     
@@ -142,6 +143,6 @@ add_chunk <- function(df, chunk, chunk_id = NULL, full.names = FALSE) {
     }
   }
 
-  fst::write_fst(chunk, file.path(attr(df,"path", exact=TRUE), paste0(chunk_id,".fst")))
+  fst::write_fst(chunk, file.path(attr(df,"path", exact=TRUE), paste0(chunk_id,".fst")), ...)
   disk.frame(attr(df,"path", exact=TRUE))
 }
