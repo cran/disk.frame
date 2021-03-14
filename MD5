@@ -1,7 +1,7 @@
-9e6af7eef47d81a02038e9623e86bff8 *DESCRIPTION
+50bfc759045628e691f724a6b0056e5f *DESCRIPTION
 12ff4d71a793956540508c1b197d61e0 *LICENSE
 e731afa6322ac29d6f9d5c9608b16314 *NAMESPACE
-93de22e11fa30beb4c42ac013c06c99f *NEWS.md
+090002765306f050fd1fdbb0abd3c2b3 *NEWS.md
 416d45af1da1c19bfd1defa687d1312e *R/RcppExports.R
 acb05b8af7949a83872132f117e37a3d *R/add_chunk.r
 9e3b68c8ac967d3613d61205bf014a67 *R/anti_join.r
@@ -45,7 +45,7 @@ dbb3d08c5ae92cd8aa168158edd4731a *R/one-stage-verbs.R
 5a42354f04c0fac00154b39c18ea007c *R/pull.r
 4c2845673ac201f7eaaf6d76aad0059f *R/rbindlist.disk.frame.r
 8700eaa7cec99f9c8181c1010b9ee0cd *R/rechunk.r
-68b0738b9ac3f41fc12f0427624d699a *R/recommend_nchunks.r
+15e4fb48ff5cfe6c0cd29bed2f3c9896 *R/recommend_nchunks.r
 6e4d57eb64d3287117cdf4a3ed9cae4d *R/remove_chunk.r
 73e7c40a0113989b540dea2a8a2d8c39 *R/right_join.r
 809d07a049435babf40e5a7431b7871c *R/sample_frac.R
@@ -63,7 +63,7 @@ c840f4a7a771abae99211ee5f6bb2ee4 *R/util.r
 cb8a510043204df0e75779f196a84249 *R/write_disk.frame.r
 e4fd05eca1d3ab8bf1e89432e76f22e5 *R/zip_to_disk.frame.r
 2e744454a0c9b642f5c4451a950cd127 *R/zzz.r
-e796cbbdbf89e7d7e6dd63e258454f72 *README.md
+97db4e95ed5f4da1ab19c27dd20876a4 *README.md
 bbab7c6d38183365df9681a503b015cd *inst/figures/disk.frame.png
 685d59699c6fbee8ca78e77aaa9f5b0f *inst/figures/hex-logo-1200.png
 e4f2908425c6476e6ddcb31df1ad66bf *inst/figures/linkedin1.PNG
