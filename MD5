@@ -1,7 +1,7 @@
-50bfc759045628e691f724a6b0056e5f *DESCRIPTION
+e68fd0fd3d2df040ab91fcbaadc0c3cf *DESCRIPTION
 12ff4d71a793956540508c1b197d61e0 *LICENSE
-e731afa6322ac29d6f9d5c9608b16314 *NAMESPACE
-090002765306f050fd1fdbb0abd3c2b3 *NEWS.md
+87e2f1dd23e71697ed3368147d36a482 *NAMESPACE
+9ab6550df067438760d9dbb55fc5298a *NEWS.md
 416d45af1da1c19bfd1defa687d1312e *R/RcppExports.R
 acb05b8af7949a83872132f117e37a3d *R/add_chunk.r
 9e3b68c8ac967d3613d61205bf014a67 *R/anti_join.r
@@ -18,7 +18,7 @@ e88db4b1b9ce7297063e66a2ea53473a *R/csv2disk.frame.r
 10824aeda37b8c0ff618e3211514799e *R/data.table.r
 2a7e7fcdc3bc00724ead6fabf4575455 *R/delete.r
 a167f49f7bc4f7f0b14c828ff7260311 *R/disk.frame.r
-6fffa496c835b743cd1450a0c1fdab5c *R/dplyr_verbs.r
+2a9c7d42a011362cb621944c88ab7806 *R/dplyr_verbs.r
 099fbd686ab9048048c4d81648149550 *R/foverlaps.disk.frame.r
 deb2c0621705d5b349fbbcc2a5f46d03 *R/full_join.r
 2158989be468657254438f3a89436a4d *R/get_chunk.r
@@ -63,7 +63,7 @@ c840f4a7a771abae99211ee5f6bb2ee4 *R/util.r
 cb8a510043204df0e75779f196a84249 *R/write_disk.frame.r
 e4fd05eca1d3ab8bf1e89432e76f22e5 *R/zip_to_disk.frame.r
 2e744454a0c9b642f5c4451a950cd127 *R/zzz.r
-97db4e95ed5f4da1ab19c27dd20876a4 *README.md
+cdcc749ab829d9854e2d6a35ffe94180 *README.md
 bbab7c6d38183365df9681a503b015cd *inst/figures/disk.frame.png
 685d59699c6fbee8ca78e77aaa9f5b0f *inst/figures/hex-logo-1200.png
 e4f2908425c6476e6ddcb31df1ad66bf *inst/figures/linkedin1.PNG
@@ -88,7 +88,7 @@ cf8df1677b37720810127081aeeb2ca5 *man/delete.Rd
 4c551693618c234706317799bb54bcb2 *man/df_ram_size.Rd
 cc9045068e0f6291683b47606583634f *man/dfglm.Rd
 c2da2327ed2941670afda6ef949d9a47 *man/disk.frame.Rd
-ea18b0f186765f3d2b72813c5cf89596 *man/dplyr_verbs.Rd
+52da6d20dd51fa6d254f86fda206f342 *man/dplyr_verbs.Rd
 c830389157397034dbdad05d9ea37423 *man/evalparseglue.Rd
 e0475f9f18254e6d8d79f41f94776613 *man/foverlaps.disk.frame.Rd
 453107cd9b193011614b91ba86f75137 *man/gen_datatable_synthetic.Rd

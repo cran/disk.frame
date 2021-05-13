@@ -211,12 +211,12 @@ flights.df %>%
   filter(year == 2013) %>% 
   mutate(origin_dest = paste0(origin, dest)) %>% 
   head(2)
-#>   year month day dep_time sched_dep_time dep_delay arr_time sched_arr_time arr_delay carrier flight
-#> 1 2013     1   1      517            515         2      830            819        11      UA   1545
-#> 2 2013     1   1      533            529         4      850            830        20      UA   1714
-#>   tailnum origin dest air_time distance hour minute           time_hour origin_dest
-#> 1  N14228    EWR  IAH      227     1400    5     15 2013-01-01 05:00:00      EWRIAH
-#> 2  N24211    LGA  IAH      227     1416    5     29 2013-01-01 05:00:00      LGAIAH
+#>   year month day dep_time sched_dep_time dep_delay arr_time sched_arr_time arr_delay carrier
+#> 1 2013     1   1      517            515         2      830            819        11      UA
+#> 2 2013     1   1      533            529         4      850            830        20      UA
+#>   flight tailnum origin dest air_time distance hour minute           time_hour origin_dest
+#> 1   1545  N14228    EWR  IAH      227     1400    5     15 2013-01-01 05:00:00      EWRIAH
+#> 2   1714  N24211    LGA  IAH      227     1416    5     29 2013-01-01 05:00:00      LGAIAH
 ```
 
 ### Group-by
@@ -322,7 +322,7 @@ To find out where the disk.frame is stored on disk:
 ``` r
 # where is the disk.frame stored
 attr(flights.df, "path")
-#> [1] "C:\\Users\\RTX2080\\AppData\\Local\\Temp\\RtmpYzoGF6\\file1aa8608412b.df"
+#> [1] "C:\\Users\\RTX2080\\AppData\\Local\\Temp\\RtmpS07d6B\\file1c1866ef6f56.df"
 ```
 
 A number of data.frame functions are implemented for disk.frame
@@ -330,19 +330,19 @@ A number of data.frame functions are implemented for disk.frame
 ``` r
 # get first few rows
 head(flights.df, 1)
-#>    year month day dep_time sched_dep_time dep_delay arr_time sched_arr_time arr_delay carrier flight
-#> 1: 2013     1   1      517            515         2      830            819        11      UA   1545
-#>    tailnum origin dest air_time distance hour minute           time_hour
-#> 1:  N14228    EWR  IAH      227     1400    5     15 2013-01-01 05:00:00
+#>    year month day dep_time sched_dep_time dep_delay arr_time sched_arr_time arr_delay carrier
+#> 1: 2013     1   1      517            515         2      830            819        11      UA
+#>    flight tailnum origin dest air_time distance hour minute           time_hour
+#> 1:   1545  N14228    EWR  IAH      227     1400    5     15 2013-01-01 05:00:00
 ```
 
 ``` r
 # get last few rows
 tail(flights.df, 1)
-#>    year month day dep_time sched_dep_time dep_delay arr_time sched_arr_time arr_delay carrier flight
-#> 1: 2013     9  30       NA            840        NA       NA           1020        NA      MQ   3531
-#>    tailnum origin dest air_time distance hour minute           time_hour
-#> 1:  N839MQ    LGA  RDU       NA      431    8     40 2013-09-30 08:00:00
+#>    year month day dep_time sched_dep_time dep_delay arr_time sched_arr_time arr_delay carrier
+#> 1: 2013     9  30       NA            840        NA       NA           1020        NA      MQ
+#>    flight tailnum origin dest air_time distance hour minute           time_hour
+#> 1:   3531  N839MQ    LGA  RDU       NA      431    8     40 2013-09-30 08:00:00
 ```
 
 ``` r

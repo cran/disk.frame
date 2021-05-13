@@ -1,3 +1,6 @@
+# disk.frame 0.5
+* removed `add_count` method
+
 # disk.frame 0.4.1
 * removed use of `sysctl` which was violating CRAN policy
 
