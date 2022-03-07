@@ -1,7 +1,7 @@
-fca13bb13ca421c4c8394d604e316419 *DESCRIPTION
+26e77d0fbaa1a6edf1608214d820e0a2 *DESCRIPTION
 12ff4d71a793956540508c1b197d61e0 *LICENSE
 b6b249c30951acd474e6898e55bcb07b *NAMESPACE
-0f9ff7ed7aed5674ea7e12386128af19 *NEWS.md
+6e5a0ccf5b2694a471650da9f409e623 *NEWS.md
 416d45af1da1c19bfd1defa687d1312e *R/RcppExports.R
 9ec9f969200eecf52a7671ec682035f4 *R/add_chunk.r
 f983378b63cc67e8c29c59437b05eb67 *R/anti_join.r
@@ -13,7 +13,7 @@ ba0f9290b8007200dd8525653083e4fe *R/bloom-filter.r
 d41d8cd98f00b204e9800998ecf8427e *R/clapply.r
 7643f570ddbe563ee0f4c513731bb0e3 *R/cmap.r
 bfc067d2754b5652ee70199518e0bd65 *R/collect.r
-4cf04b4b0f4d204438723086cc24e472 *R/collect.summarized_disk.frame.r
+1e6209c7ba7683951417e664b43b09e6 *R/collect.summarized_disk.frame.r
 0b59dd05b44695b8d3d521405b44e1f0 *R/compute.r
 0e7a5fc9c9439a1d1129290023606e84 *R/csv2disk.frame.r
 57382b5f5c71f1542df8ebfb6b520311 *R/csv2disk.frame_readr.r
@@ -42,7 +42,7 @@ ff9b2c9403ce8ab8763c6e7b24857e39 *R/left_join.r
 4f8d1e9207a4cab4e12d7ec6ba6f7abc *R/nchunks.r
 8a22c05b9aedfb9b7fca90faff0cdcba *R/ncol-nrow.r
 a94e3d7cc20d1ad06834b6de0716a230 *R/nest_join.r
-2c9924a207192d46f3465e20ae91a6c3 *R/one-stage-verbs.R
+f740cbe52faec1b02aa9f6df80904ae8 *R/one-stage-verbs.R
 bd2053d7f1e709fb83783b77e49d17ed *R/overwrite_check.r
 9d7306c95b3ec91d245dc73340dae0e9 *R/partition-filter.r
 e69bf3fb5845faa85acf79b88bdcf983 *R/play.r
@@ -68,7 +68,7 @@ fee33d0777907ac03018644d933f197b *R/util.r
 79f55e2c55105613307a2b7b900fa60d *R/write_disk.frame.r
 543bd7a17c61fa2b23015f5a20c77b10 *R/zip_to_disk.frame.r
 332f6e68aa31c79c792fffc3ad5f2e82 *R/zzz.r
-b759da50e8026f78340b2b61fae4a7ef *README.md
+b176fbb5cea385cca2c6d84b5fd5b81f *README.md
 bbab7c6d38183365df9681a503b015cd *inst/figures/disk.frame.png
 685d59699c6fbee8ca78e77aaa9f5b0f *inst/figures/hex-logo-1200.png
 e4f2908425c6476e6ddcb31df1ad66bf *inst/figures/linkedin1.PNG
