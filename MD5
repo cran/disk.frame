@@ -1,11 +1,11 @@
-26e77d0fbaa1a6edf1608214d820e0a2 *DESCRIPTION
+05de8c3b210d2d241e2c74008b0c712d *DESCRIPTION
 12ff4d71a793956540508c1b197d61e0 *LICENSE
-b6b249c30951acd474e6898e55bcb07b *NAMESPACE
-6e5a0ccf5b2694a471650da9f409e623 *NEWS.md
+5c61dfc720711266c85d0b7cd2595c62 *NAMESPACE
+e93bc8a08027791b798847e684c1abd0 *NEWS.md
 416d45af1da1c19bfd1defa687d1312e *R/RcppExports.R
 9ec9f969200eecf52a7671ec682035f4 *R/add_chunk.r
-f983378b63cc67e8c29c59437b05eb67 *R/anti_join.r
-a8f78ee720c77550faf1cda157e46a06 *R/as.data.frame.r
+7efa16ee72afff19eb5ccc4dd2375cb9 *R/anti_join.r
+39c080aaaa4343410d6320bd71ccfac3 *R/as.data.frame.r
 ba9cd32f78a0c2957e613c161ce1a44a *R/as.disk.frame.r
 5bade4dd265b674a80c552b5791e950a *R/bind_rows.r
 ba0f9290b8007200dd8525653083e4fe *R/bloom-filter.r
@@ -13,11 +13,11 @@ ba0f9290b8007200dd8525653083e4fe *R/bloom-filter.r
 d41d8cd98f00b204e9800998ecf8427e *R/clapply.r
 7643f570ddbe563ee0f4c513731bb0e3 *R/cmap.r
 bfc067d2754b5652ee70199518e0bd65 *R/collect.r
-1e6209c7ba7683951417e664b43b09e6 *R/collect.summarized_disk.frame.r
+d28e9d97202d50063ee5a6f121f763a4 *R/collect.summarized_disk.frame.r
 0b59dd05b44695b8d3d521405b44e1f0 *R/compute.r
 0e7a5fc9c9439a1d1129290023606e84 *R/csv2disk.frame.r
 57382b5f5c71f1542df8ebfb6b520311 *R/csv2disk.frame_readr.r
-cc31e65bfa2c4d4af751da67e7407cde *R/data.table.r
+5258b7435b78a018fe4ec54e95e89a91 *R/data.table.r
 2a7e7fcdc3bc00724ead6fabf4575455 *R/delete.r
 b39a993fe833b5212623e4633cc5c799 *R/disk.frame-to-parquet.r
 5997ed2d771aa3e8d7003b109003dfd4 *R/disk.frame.r
@@ -30,9 +30,9 @@ c51516a820a9f4db5ff2a68e8ef33d68 *R/get_chunk_ids.r
 85a80ee399a3c6ecaed653d4f64da6c5 *R/glm.r
 dd0c9c40b4abc9523485ca1949c48dcd *R/hard_arrange.r
 f16326bca718174132950cba03b738da *R/hard_group_by.r
-082687b31f526d61103965f4ee74eba0 *R/inner_join.r
+8e58f9a16c6cdb7933e3de3bbb3ed560 *R/inner_join.r
 8a606e0168e70d27e6c597d9f18d8f9a *R/is_disk.frame.r
-ff9b2c9403ce8ab8763c6e7b24857e39 *R/left_join.r
+2181be67b68b72bd5f5cbc119ca58fa6 *R/left_join.r
 8f9def1d2eb55fd23b1568d4890b5118 *R/make_glm_streaming_fn.r
 363a62c9169f8b6500fd0da6fbeeb4a2 *R/map2.r
 20ac2dd7ff45c332c3528e2544310ce7 *R/map_by_chunk_id.r
@@ -56,7 +56,7 @@ c635d4fd1f2f39af43288f0a921fe238 *R/recommend_nchunks.r
 809d07a049435babf40e5a7431b7871c *R/sample_frac.R
 fbdd86546e02eb8f483f4bc8f02d02a7 *R/sample_n.R
 bcf264a3314b6e4d70fc1a4485c37199 *R/sas2disk_frame.r
-50ae1b7c226c43667a6012ccb0528eed *R/semi_join.r
+f83e4cded579b2c713860a4f33f45ea6 *R/semi_join.r
 619737d2ffc5e0fb13e0099081bb7327 *R/setup.r
 d25ffd4530228e513c82e456ac682af9 *R/shard.r
 0a5ca34fe99904b00176316b1285237f *R/shardkey.r
@@ -68,7 +68,7 @@ fee33d0777907ac03018644d933f197b *R/util.r
 79f55e2c55105613307a2b7b900fa60d *R/write_disk.frame.r
 543bd7a17c61fa2b23015f5a20c77b10 *R/zip_to_disk.frame.r
 332f6e68aa31c79c792fffc3ad5f2e82 *R/zzz.r
-b176fbb5cea385cca2c6d84b5fd5b81f *README.md
+37a1a437cff28cfbd991ce55875b228d *README.md
 bbab7c6d38183365df9681a503b015cd *inst/figures/disk.frame.png
 685d59699c6fbee8ca78e77aaa9f5b0f *inst/figures/hex-logo-1200.png
 e4f2908425c6476e6ddcb31df1ad66bf *inst/figures/linkedin1.PNG
@@ -78,7 +78,7 @@ c1b70e39758eb8aa6d0d792fe3485978 *inst/figures/settings-gui.PNG
 0e0bc0ac312b0e930d357ffd63911269 *inst/options.rmd
 ebf5b0de2e795ce11bb1e1ea846147c4 *inst/shard-test.r
 8cac0f6e2b872677c219120e44a07622 *man/add_chunk.Rd
-bb4ec3716d49a3ec47003f8cb98b27f2 *man/as.data.frame.disk.frame.Rd
+5b386818aaf60cc3c866f8efc6e9331a *man/as.data.frame.disk.frame.Rd
 b85b8004440cd83e12c874db8dc90ebf *man/as.data.table.disk.frame.Rd
 c8e1f6ac20848ed6bc96d2209085f47e *man/as.disk.frame.Rd
 f43ba8c44d4b97507c67dcba7861b88b *man/bind_rows.disk.frame.Rd
@@ -94,7 +94,7 @@ cf8df1677b37720810127081aeeb2ca5 *man/delete.Rd
 4c551693618c234706317799bb54bcb2 *man/df_ram_size.Rd
 cc9045068e0f6291683b47606583634f *man/dfglm.Rd
 c2da2327ed2941670afda6ef949d9a47 *man/disk.frame.Rd
-58b751866a2b0c2b6a05b1f0d382e62c *man/disk.frame_to_parquet.Rd
+4342aea6bb57869ceecfe04039155a3b *man/disk.frame_to_parquet.Rd
 c30ed1121459c94b4a85cc9696e5b876 *man/dplyr_verbs.Rd
 c830389157397034dbdad05d9ea37423 *man/evalparseglue.Rd
 cbd31158bd4821abc968e790d28390d8 *man/find_globals_recursively.Rd
@@ -132,7 +132,7 @@ f6478aebac42b1fb8e69128fd914f6d0 *man/shardkey_equal.Rd
 20c43d0c512f987061c8f93f83c2cee4 *man/show_ceremony.Rd
 59338e493380749a1bc45c79a140e1e3 *man/split_string_into_df.Rd
 7b646668ee949af1303b5603a2adce48 *man/srckeep.Rd
-1ea15464fb9c1ad57f020e1160d1fc1d *man/sub-.disk.frame.Rd
+2a782900b60107f1f549e4be3b57ae4b *man/sub-sub-.disk.frame.Rd
 6b617f96c6b74992147e7fa7084ba280 *man/tbl_vars.disk.frame.Rd
 519609158f231e258aea8dc7fb620ba7 *man/write_disk.frame.Rd
 960a298d7a1cb60fbbe181e57350d95c *man/zip_to_disk.frame.Rd
