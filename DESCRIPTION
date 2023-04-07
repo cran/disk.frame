@@ -1,8 +1,8 @@
 Type: Package
 Package: disk.frame
 Title: Larger-than-RAM Disk-Based Data Manipulation Framework
-Version: 0.8.1
-Date: 2023-03-09
+Version: 0.8.2
+Date: 2023-04-07
 Authors@R: c(
   person("Dai", "ZJ", email = "zhuojia.dai@gmail.com", role = c("aut", "cre")),
   person("Jacky", "Poon", role = c("ctb"))
@@ -20,16 +20,16 @@ Imports: Rcpp (>= 0.12.13), glue (>= 1.3.1), future.apply (>= 1.3.0),
         1.12.2), crayon (>= 1.3.4), bigreadr (>= 0.2.0), bit64,
         benchmarkme, purrr (>= 0.3.2), globals, rlang, arrow
 Depends: R (>= 4.0), dplyr (>= 1.1.0)
-Suggests: nycflights13, magrittr, shiny, LaF, readr, rstudioapi, biglm,
-        biglmm, speedglm, broom, ggplot2
+Suggests: nycflights13, magrittr, shiny, LaF, readr, rstudioapi, broom,
+        ggplot2
 LinkingTo: Rcpp
 RoxygenNote: 7.2.3
 Encoding: UTF-8
 URL: https://diskframe.com
 BugReports: https://github.com/DiskFrame/disk.frame/issues
 NeedsCompilation: yes
-Packaged: 2023-03-08 13:49:39 UTC; RTX2080
+Packaged: 2023-04-07 08:07:44 UTC; RTX2080
 Author: Dai ZJ [aut, cre],
   Jacky Poon [ctb]
 Repository: CRAN
-Date/Publication: 2023-03-08 15:00:06 UTC
+Date/Publication: 2023-04-07 17:50:15 UTC
