@@ -122,53 +122,6 @@ prepare_dir.disk.frame <- function(df, path, clean = FALSE) {
   fpath2
 }
 
-#' The readiness of a disk.frame
-#' @description 
-#' Sometimes a disk.frame may be in use and this check whether it is ready from a long running non-blocking process.
-# TODO 
-#' @param df a disk.frame
-#' @noRd
-is_ready <- function(df) {
-  return(TRUE)
-  UseMethod("is_ready")  
-}
-
-status <- function(...) {
-  UseMethod("status")
-}
-
-status.disk.frame <- function(df) {
-  perf = attr(df,"performing")
-  if(perf == "none") {
-    nc = nchunk(df, skip.ready.check = TRUE)
-    return(list(status = "at rest", nchunk = nc, nchunk_ready = nc))
-  } else if (perf == "hard_group_by") {
-    fpath = attr(df, "parent")
-    ndf = nchunk(df, skip.ready.check = TRUE)
-    if(!dir.exists(file.path(fpath, ".performing"))) {
-      return(list(status = "hard group by", nchunk = ndf, nchunk_ready = 0))
-    } else if(dir.exists(file.path(fpath, ".performing", "outchunks"))) {
-      l = length(list.files(file.path(fpath, ".performing", "outchunks")))
-      if(l == ndf) {
-        attr(df, "performing") <- "none"
-        return(list(status ="none", nchunk = ndf, nchunk_read = ndf))
-      }
-      return(list(status = "hard group by", nchunk = ndf, nchunk_ready = l))
-    }
-  } else {
-    return(list(status = "unknown", nchunk = NA, nchunk_ready = NA))
-  }
-}
-
-is_ready.disk.frame <- function(df) {
-  sts = status(df)
-  if(sts$status == "none") {
-    return(TRUE)
-  } else {
-    return(TRUE)
-  }
-}
-
 #' Is the disk.frame a single-file or a folder
 #' @description 
 #' Checks if the df is a single-file based disk.frame
@@ -211,7 +164,6 @@ is.dir.disk.frame <- function(df, check.consistency = TRUE) {
 #' # clean up 
 #' delete(cars.df)
 head.disk.frame <- function(x, n = 6L, ...) {
-  stopifnot(is_ready(x))
   path1 <- attr(x,"path")
   cmds <- attr(x, "recordings")
   if(fs::dir_exists(path1)) {
@@ -227,7 +179,6 @@ head.disk.frame <- function(x, n = 6L, ...) {
 #' @importFrom utils tail
 #' @rdname head_tail
 tail.disk.frame <- function(x, n = 6L, ...) {
-  stopifnot(is_ready(x))
   path1 <- attr(x,"path")
   cmds <- attr(x, "recordings")
   if(dir.exists(path1)) {

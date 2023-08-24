@@ -1,6 +1,6 @@
-df208d86a6e33067bf8fc461e146c6c1 *DESCRIPTION
+9e9e5530ef1d68609b24a107526ff0be *DESCRIPTION
 12ff4d71a793956540508c1b197d61e0 *LICENSE
-de570c4a325d10b1982f7b299004756e *NAMESPACE
+2727ce0711a7486f6841c7580e86082e *NAMESPACE
 0d3691499ca43ba268798606aa63f5af *NEWS.md
 416d45af1da1c19bfd1defa687d1312e *R/RcppExports.R
 9ec9f969200eecf52a7671ec682035f4 *R/add_chunk.r
@@ -11,7 +11,7 @@ ba9cd32f78a0c2957e613c161ce1a44a *R/as.disk.frame.r
 ba0f9290b8007200dd8525653083e4fe *R/bloom-filter.r
 50f80970b1ca7c3eeffd6641b27e65fa *R/chunk_mapper.r
 d41d8cd98f00b204e9800998ecf8427e *R/clapply.r
-7643f570ddbe563ee0f4c513731bb0e3 *R/cmap.r
+08f30e4da0f6d593b76a22cbedc14743 *R/cmap.r
 bfc067d2754b5652ee70199518e0bd65 *R/collect.r
 d28e9d97202d50063ee5a6f121f763a4 *R/collect.summarized_disk.frame.r
 0b59dd05b44695b8d3d521405b44e1f0 *R/compute.r
@@ -20,7 +20,7 @@ d28e9d97202d50063ee5a6f121f763a4 *R/collect.summarized_disk.frame.r
 5258b7435b78a018fe4ec54e95e89a91 *R/data.table.r
 2a7e7fcdc3bc00724ead6fabf4575455 *R/delete.r
 b39a993fe833b5212623e4633cc5c799 *R/disk.frame-to-parquet.r
-5997ed2d771aa3e8d7003b109003dfd4 *R/disk.frame.r
+bdca0178a0221dac1f2bdb381e41dde9 *R/disk.frame.r
 ca8854d8660d6aa065674d57032db68a *R/dplyr_verbs.r
 2d245b76f6606f3e252bc7a608480de0 *R/foverlaps.disk.frame.r
 d068ac124a6417d8d55fdc0d8c1939d3 *R/full_join.r
@@ -37,8 +37,8 @@ f16326bca718174132950cba03b738da *R/hard_group_by.r
 69422940d8b531019c7b6612a1f4de2d *R/merge.disk.frame.r
 60eedf371a868ae79310a400408a8f23 *R/move_to.r
 173e98a101e5228c2a1a7f5ace33bac6 *R/names.r
-4f8d1e9207a4cab4e12d7ec6ba6f7abc *R/nchunks.r
-8a22c05b9aedfb9b7fca90faff0cdcba *R/ncol-nrow.r
+1444024cc4917270878aaae9eb2b987f *R/nchunks.r
+2e8738d9f487821f8caa3046be2d11e1 *R/ncol-nrow.r
 a94e3d7cc20d1ad06834b6de0716a230 *R/nest_join.r
 f740cbe52faec1b02aa9f6df80904ae8 *R/one-stage-verbs.R
 bd2053d7f1e709fb83783b77e49d17ed *R/overwrite_check.r
@@ -55,7 +55,7 @@ c635d4fd1f2f39af43288f0a921fe238 *R/recommend_nchunks.r
 fbdd86546e02eb8f483f4bc8f02d02a7 *R/sample_n.R
 bcf264a3314b6e4d70fc1a4485c37199 *R/sas2disk_frame.r
 f83e4cded579b2c713860a4f33f45ea6 *R/semi_join.r
-619737d2ffc5e0fb13e0099081bb7327 *R/setup.r
+a6cab13f15d6756a52f5914bf1e04920 *R/setup.r
 d25ffd4530228e513c82e456ac682af9 *R/shard.r
 0a5ca34fe99904b00176316b1285237f *R/shardkey.r
 ed9b1c60178fa11e8ce14da092f22f53 *R/show_ceremony.R
@@ -66,7 +66,7 @@ fee33d0777907ac03018644d933f197b *R/util.r
 79f55e2c55105613307a2b7b900fa60d *R/write_disk.frame.r
 543bd7a17c61fa2b23015f5a20c77b10 *R/zip_to_disk.frame.r
 332f6e68aa31c79c792fffc3ad5f2e82 *R/zzz.r
-f4237371a89b2d69b5ab9b3df2fd8f29 *README.md
+3157ba6fbb0ea784c59449f9c3174fd2 *README.md
 bbab7c6d38183365df9681a503b015cd *inst/figures/disk.frame.png
 685d59699c6fbee8ca78e77aaa9f5b0f *inst/figures/hex-logo-1200.png
 e4f2908425c6476e6ddcb31df1ad66bf *inst/figures/linkedin1.PNG

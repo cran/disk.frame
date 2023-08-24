@@ -100,8 +100,6 @@ cimap.disk.frame <- function(.x, .f, outdir = NULL, keep = NULL, lazy = TRUE, ov
     overwrite_check(outdir, overwrite)
   }
   
-  stopifnot(is_ready(.x))
-  
   keep1 = attr(.x,"keep", exact=TRUE)
   
   if(is.null(keep)) {
